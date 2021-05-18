@@ -71,8 +71,6 @@ mvn test
 ### Deleting target folder
 ```
 mvn clean
-mvn pre-clean
-mvn post-clean
 ```
 Any one of the above commands will list clean life-cycle phases.
 
