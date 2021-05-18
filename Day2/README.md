@@ -230,7 +230,7 @@ exit
 docker cp lb:/etc/nginx/nginx.conf .
 ```
 
-### Edit the nginx.conf on your machine and make sure it looks as shown below
+### Edit the nginx.conf on your RPS Lab machine and make sure it looks as shown below
 ```
 user  nginx;
 worker_processes  1;
@@ -261,4 +261,19 @@ The assumption is
 172.17.0.2 is the IP Address of web1 container
 172.17.0.3 is the IP Address of web2 container
 172.17.0.4 is the IP Address of web3 container
+```
+
+### We need copy the nginx.conf file from local machine to lb container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+
+### We need to restart lb container to apply the configuration changes
+```
+docker restart lb
+```
+
+### Ensure the lb container is still running
+```
+docker ps
 ```
