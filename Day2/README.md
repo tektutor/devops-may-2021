@@ -72,7 +72,20 @@ docker ps
 docker ps -a
 ```
 
+### Inspecting a container
+```
+docker inspect c1
+docker inspect c1 | grep Layers
+docker inspect c1 | grep IPA
+```
+
 ### Removing(Deleting) Docker images
 ```
 docker rmi hello-world:latest
+```
+
+### Inspecting Docker image
+```
+docker image inspect ubuntu:16.04
+docker image inspect hello-world:latest
 ```
