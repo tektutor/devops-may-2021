@@ -192,3 +192,20 @@ curl http://192.168.18.126:8001
 curl http://192.168.18.126:8002
 curl http://192.168.18.126:8003
 ```
+
+### Dispose existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+
+### Create 3 nginx web server containers without port-forwarding
+```
+docker run -d --name web1 --hostname web1 nginx:1.18
+docker run -d --name web2 --hostname web2 nginx:1.18
+docker run -d --name web3 --hostname web3 nginx:1.18
+```
+
+### Create a Load Balancer nginx container with port forwarding
+```
+docker run -d --name lb --hostname lb nginx:1.18
+```
