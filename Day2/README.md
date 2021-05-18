@@ -277,3 +277,19 @@ docker restart lb
 ```
 docker ps
 ```
+
+### Optionally you could change the index.html files in web1, web2 and web3 containers as shown below
+```
+docker exec -it web1 bash
+echo "Server 1" > /usr/share/nginx/html/index.html
+exit
+docker exec -it web2 bash
+echo "Server 2" > /usr/share/nginx/html/index.html
+exit
+docker exec -it web3 bash
+echo "Server 3" > /usr/share/nginx/html/index.html
+exit
+```
+
+### You may now access the web page as shown below
+curl http://192.168.18.126:80
