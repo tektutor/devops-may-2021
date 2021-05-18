@@ -1,6 +1,6 @@
 # Docker Commands
 
-## Manging Docker Installation
+## Managing Docker Installation
 
 ### Installing Docker in Windows
 https://docs.docker.com/docker-for-windows/install/
