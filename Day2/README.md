@@ -169,3 +169,26 @@ curl http://172.17.0.2
 curl http://172.17.0.3
 curl http://172.17.0.4
 ```
+
+### Port forwarding
+```
+docker run -d --name web1 --hostname web1 -p 8001:80 nginx:1.18
+docker run -d --name web2 --hostname web2 -p 8002:80 nginx:1.18
+docker run -d --name web3 --hostname web3 -p 8003:80 nginx:1.18
+```
+
+### Verify if all 3 nginx containers are running
+```
+docker ps
+```
+
+### Access the web from anywhere with RPS Network
+```
+ifconfig ens192
+```
+Assuming my RPS lab machine IP address is 192.168.18.126, the web pages can be accessed as shown below
+```
+curl http://192.168.18.126:8001
+curl http://192.168.18.126:8002
+curl http://192.168.18.126:8003
+```
