@@ -207,5 +207,5 @@ docker run -d --name web3 --hostname web3 nginx:1.18
 
 ### Create a Load Balancer nginx container with port forwarding
 ```
-docker run -d --name lb --hostname lb nginx:1.18
+docker run -d --name lb --hostname lb -p 80:80 nginx:1.18
 ```
