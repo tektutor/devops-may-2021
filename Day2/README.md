@@ -29,6 +29,11 @@ docker run -it --name c3 --hostname c3 ubuntu:16.04 /bin/bash
 docker run -it --name c4 --hostname c4 ubuntu:16.04 /bin/bash
 ```
 
+### Coming out of an interactive container shell without terminating container
+```
+Ctrl + q
+```
+
 ### Removing containers
 ```
 docker rm -f c1 c2 c3 c4
@@ -43,6 +48,11 @@ docker run -dit --name c1 --hostname c1 ubuntu:16.04 /bin/bash
 docker run -dit --name c2 --hostname c2 ubuntu:16.04 /bin/bash
 docker run -dit --name c3 --hostname c3 ubuntu:16.04 /bin/bash
 docker run -dit --name c4 --hostname c4 ubuntu:16.04 /bin/bash
+```
+
+### Geting inside an already running container
+```
+docker exec -it c1 bash
 ```
 
 ### Stoping a container
