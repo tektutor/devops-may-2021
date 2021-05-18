@@ -1,5 +1,35 @@
 # Docker Commands
 
+## Manging Docker Installation
+
+### Installing Docker in Windows
+https://docs.docker.com/docker-for-windows/install/
+
+### Install docker in CentOS 
+```
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce
+sudo systemctl enable docker && sudo systemctl start docker
+```
+
+### Checking the Docker Engine(Server) status
+```
+sudo systemctl status docker
+```
+
+### Stopping the Docker Engine
+```
+sudo systemctl stop docker
+```
+
+### Restarting the Docker Engine
+```
+sudo systemctl restart docker
+```
+
 ### Finding docker version
 ```
 docker --version
@@ -9,6 +39,8 @@ docker --version
 ```
 docker info
 ```
+
+## Managing Docker Images
 
 ### Listing images from local registry
 ```
@@ -20,6 +52,19 @@ docker images
 docker pull hello-world:latest
 docker pull ubuntu:16.04
 ```
+
+### Removing(Deleting) Docker images
+```
+docker rmi hello-world:latest
+```
+
+### Inspecting Docker image
+```
+docker image inspect ubuntu:16.04
+docker image inspect hello-world:latest
+```
+
+## Managing Containers
 
 ### Creating a container in interactive(foreground) mode
 ```
@@ -95,13 +140,3 @@ docker inspect c1 | grep IPA
 docker inspect -f {{.NetworkSettings.IPAddress}} c1
 ```
 
-### Removing(Deleting) Docker images
-```
-docker rmi hello-world:latest
-```
-
-### Inspecting Docker image
-```
-docker image inspect ubuntu:16.04
-docker image inspect hello-world:latest
-```
