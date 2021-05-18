@@ -1,9 +1,9 @@
 # Commonly used Maven commands
 
 ### Checking Maven version
-'''
+```
 mvn --version
-'''
+```
 
 ### Compiling application source code in a Maven project
 ```
