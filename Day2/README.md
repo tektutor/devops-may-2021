@@ -33,6 +33,8 @@ docker run -it --name c4 --hostname c4 ubuntu:16.04 /bin/bash
 ```
 docker rm -f c1 c2 c3 c4
 docker stop $(docker ps -q) && docker rm c1 c2 c3 c4
+docker stop $(docker ps -q) && docker rm $(docker ps -aq)
+docker rm -f $(docker ps -aq)
 ```
 
 ### Creating containers in background(daemon) mode
@@ -44,19 +46,33 @@ docker run -dit --name c4 --hostname c4 ubuntu:16.04 /bin/bash
 ```
 
 ### Stoping a container
+```
 docker stop c1
+```
 
 ### Starting an exited container
+```
 docker start c1
+```
 
 ### Restarting container
+```
 docker restart c1
-
+```
 ### Renaming a container name
+```
 docker rename c1 server1
-
+```
 ### Listing all running containers
+```
 docker ps
-
-### List all containers even then exited onees
+```
+### List all containers even then exited ones
+```
 docker ps -a
+```
+
+### Removing(Deleting) Docker images
+```
+docker rmi hello-world:latest
+```
