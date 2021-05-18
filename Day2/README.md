@@ -299,7 +299,7 @@ curl http://192.168.18.126:80
 ```
 You need to replace the IP address with your RPS Lab machine IP.
 
-Each time to curl the URL,  you will get output something like
+Each time you curl the URL, you will get output something like
 ```
 curl http://192.168.18.126:80
 Server 1
