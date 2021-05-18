@@ -89,6 +89,12 @@ docker inspect c1 | grep Layers
 docker inspect c1 | grep IPA
 ```
 
+### Finding IP address of a container
+```
+docker inspect c1 | grep IPA
+docker inspect -f {{.NetworkSettings.IPAddress}} c1
+```
+
 ### Removing(Deleting) Docker images
 ```
 docker rmi hello-world:latest
