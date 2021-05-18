@@ -292,4 +292,7 @@ exit
 ```
 
 ### You may now access the web page as shown below
+```
 curl http://192.168.18.126:80
+```
+You need to replace the IP address with your RPS Lab machine IP.
