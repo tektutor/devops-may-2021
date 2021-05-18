@@ -140,3 +140,23 @@ docker inspect c1 | grep IPA
 docker inspect -f {{.NetworkSettings.IPAddress}} c1
 ```
 
+### Creating nginx web server containers
+```
+docker run -d --name web-server1 --hostname web-server1 nginx:1.18
+docker run -d --name web-server2 --hostname web-server2 nginx:1.18
+docker run -d --name web-server3 --hostname web-server3 nginx:1.18
+```
+
+### Finding the IP address of the nginx containeers
+```
+docker inspect web-server1 | grep IPA
+docker inspect -f {{.NetworkSettings.IPAddress}} web-server2
+```
+We can get inside the container as shown below
+```
+docker exec -it web-server3 bash
+```
+Then we can try this below command to get the IP Address
+```
+hostname -i
+```
