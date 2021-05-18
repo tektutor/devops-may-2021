@@ -209,3 +209,23 @@ docker run -d --name web3 --hostname web3 nginx:1.18
 ```
 docker run -d --name lb --hostname lb -p 80:80 nginx:1.18
 ```
+### Get inside the Load Balancer container
+```
+docker exec -it lb bash
+```
+Once you are inside the lb container shell,  type the below commands inside lb container shell
+```
+cd /etc/nginx
+cat nginx.conf
+pwd
+```
+
+Once you have investigated the nginx.conf file and its location,  come out of the lb  container
+```
+exit
+```
+
+### Copy the nginx.conf file from lb container to local machine
+```
+docker cp lb:/etc/nginx/nginx.conf .
+```
