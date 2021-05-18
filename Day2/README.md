@@ -229,3 +229,36 @@ exit
 ```
 docker cp lb:/etc/nginx/nginx.conf .
 ```
+
+### Edit the nginx.conf on your machine and make sure it looks as shown below
+```
+user  nginx;
+worker_processes  1;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    server {
+        location / {
+	   proxy_pass http://backend;
+	}
+    }
+
+    upstream backend {
+        server 172.17.0.2:80;
+        server 172.17.0.3:80;
+        server 172.17.0.4:80;
+    }
+}
+```
+The assumption is
+```
+172.17.0.2 is the IP Address of web1 container
+172.17.0.3 is the IP Address of web2 container
+172.17.0.4 is the IP Address of web3 container
+```
