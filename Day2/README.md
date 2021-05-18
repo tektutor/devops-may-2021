@@ -160,3 +160,12 @@ Then we can try this below command to get the IP Address
 ```
 hostname -i
 ```
+
+### Accessing nginx web pages
+Assuming 172.17.0.2 is the IPAddress of web-server1, 172.17.0.3 is the IPAddress of web-server2 and 172.17.04 is
+the IPAddress of web-server3
+```
+curl http://172.17.0.2
+curl http://172.17.0.3
+curl http://172.17.0.4
+```
