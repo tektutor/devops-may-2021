@@ -1,0 +1,387 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.tektutor:tektutor-python-hello >-----------------
+[INFO] Building tektutor-python-hello 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.2.0:describe (default-cli) @ tektutor-python-hello ---
+[INFO] org.codehaus.mojo:exec-maven-plugin:3.0.0
+
+Name: Exec Maven Plugin
+Description: A plugin to allow execution of system and Java programs
+Group Id: org.codehaus.mojo
+Artifact Id: exec-maven-plugin
+Version: 3.0.0
+Goal Prefix: exec
+
+This plugin has 3 goals:
+
+exec:exec
+  Description: A Plugin for executing external programs.
+  Implementation: org.codehaus.mojo.exec.ExecMojo
+  Language: java
+
+  Available parameters:
+
+    addOutputToClasspath (Default: true)
+      User property: addOutputToClasspath
+      Add project output directory to classpath. This might be undesirable when
+      the exec plugin is run before the compile step. Default is true.
+
+    addResourcesToClasspath (Default: false)
+      User property: addResourcesToClasspath
+      Add project resource directories to classpath. This is especially useful
+      if the exec plugin is used for a code generator that reads its settings
+      from the classpath.
+
+    arguments
+      A list of arguments passed to the executable, which should be of type
+      <argument> or <classpath>. Can be overridden by using the exec.args
+      environment variable.
+
+    async (Default: false)
+      User property: exec.async
+      If set to true the child process executes asynchronously and build
+      execution continues in parallel.
+
+    asyncDestroyOnShutdown (Default: true)
+      User property: exec.asyncDestroyOnShutdown
+      If set to true, the asynchronous child process is destroyed upon JVM
+      shutdown. If set to false, asynchronous child process continues execution
+      after JVM shutdown. Applies only to asynchronous processes; ignored for
+      synchronous processes.
+
+    classpathScope (Default: runtime)
+      User property: exec.classpathScope
+      Defines the scope of the classpath passed to the plugin. Set to
+      compile,test,runtime or system depending on your needs. Since 1.1.2, the
+      default value is 'runtime' instead of 'compile'.
+
+    commandlineArgs
+      User property: exec.args
+      Arguments separated by space for the executed program. For example: '-j
+      20'
+
+    environmentScript
+      Environment script to be merged with environmentVariables This script is
+      platform specifics, on Unix its must be Bourne shell format. Use this
+      feature if you have a need to create environment variable dynamically
+      such as invoking Visual Studio environment script file
+
+    environmentVariables
+      Environment variables to pass to the executed program. For example if you
+      want to set the LANG var: <environmentVariables> <LANG>en_US</LANG>
+      </environmentVariables>
+
+    executable
+      User property: exec.executable
+      The executable. Can be a full path or the name of the executable. In the
+      latter case, the executable must be in the PATH for the execution to
+      work. Omit when using executableDependency.
+      
+      The plugin will search for the executable in the following order:
+      
+      1.  relative to the root of the project
+      2.  as toolchain executable
+      3.  relative to the working directory (Windows only)
+      4.  relative to the directories specified in the system property PATH
+        (Windows Only)
+      Otherwise use the executable as is.
+
+    executableDependency
+      If provided the ExecutableDependency identifies which of the plugin
+      dependencies contains the executable class. This will have the effect of
+      only including plugin dependencies required by the identified
+      ExecutableDependency.
+      If includeProjectDependencies is set to true, all of the project
+      dependencies will be included on the executable's classpath. Whether a
+      particular project dependency is a dependency of the identified
+      ExecutableDependency will be irrelevant to its inclusion in the
+      classpath.
+
+    longClasspath (Default: false)
+      User property: exec.longClasspath
+      If set to true the classpath and the main class will be written to a
+      MANIFEST.MF file and wrapped into a jar. Instead of '-classpath/-cp
+      CLASSPATH mainClass' the exec plugin executes '-jar maven-exec.jar'.
+
+    longModulepath (Default: true)
+      User property: exec.longModulepath
+      If set to true the modulepath and the main class will be written as an
+      @arg file Instead of '--module-path/-p MODULEPATH ' the exec plugin
+      executes '@modulepath'.
+
+    outputFile
+      User property: exec.outputFile
+      Program standard and error output will be redirected to the file
+      specified by this optional field. If not specified the standard Maven
+      logging is used.
+      Note: Be aware that System.out and System.err use buffering, so don't
+      rely on the order!
+
+    quietLogs (Default: false)
+      User property: exec.quietLogs
+      When combined with exec.useMavenLogger=true, prints all executed program
+      output at debug level instead of the default info level to the Maven
+      logger.
+
+    skip (Default: false)
+      Alias: skip
+      User property: exec.skip
+      Skip the execution. Starting with version 1.4.0 the former name skip has
+      been changed into exec.skip.
+
+    sourceRoot
+      User property: sourceRoot
+      This folder is added to the list of those folders containing source to be
+      compiled. Use this if your plugin generates source code.
+
+    successCodes
+      Exit codes to be resolved as successful execution for non-compliant
+      applications (applications not returning 0 for success).
+
+    testSourceRoot
+      User property: testSourceRoot
+      This folder is added to the list of those folders containing source to be
+      compiled for testing. Use this if your plugin generates test source code.
+
+    timeout (Default: 0)
+      User property: exec.timeout
+      Timeout in full milliseconds, default is 0.
+      
+      When set to a value larger than zero, the executable is forcefully
+      terminated if it did not finish within this time, and the build will
+      fail.
+
+    toolchain (Default: jdk)
+      User property: exec.toolchain
+      The toolchain. If omitted, 'jdk' is assumed.
+
+    useMavenLogger (Default: false)
+      User property: exec.useMavenLogger
+      When enabled, program standard and error output will be redirected to the
+      Maven logger as Info and Error level logs, respectively. If not enabled
+      the traditional behavior of program output being directed to standard
+      System.out and System.err is used.
+      
+      NOTE: When enabled, to log the program standard out as Maven Debug level
+      instead of Info level use exec.quietLogs=true.
+      
+      This option can be extremely helpful when combined with multithreaded
+      builds for two reasons:
+      
+      - Program output is suffixed with the owning thread name, making it
+        easier to trace execution of a specific projects build thread.
+      - Program output will not get jumbled with other maven log messages.
+      For Example, if using exec:exec to run a script to echo a count from 1 to
+      100 as:
+      for i in {1..100}
+      do
+       echo '${project.artifactId} - $i'
+      done
+      When this script is run multi-threaded on two modules, module1 and
+      module2, you might get output such as:
+      [BuilderThread 1] [INFO] --- exec-maven-plugin:1.6.0:exec (test) @
+      module1 ---
+      [BuilderThread 2] [INFO] --- exec-maven-plugin:1.6.0:exec (test) @
+      module2 ---
+      ...
+      module2 - 98
+      modu
+      module1 - 97
+      module1 -
+      le2 - 9899
+      ...
+      With this flag enabled, the output will instead come something similar
+      to:
+      ...
+      [Exec Stream Pumper] [INFO] [BuilderThread 2] module2 - 98
+      [Exec Stream Pumper] [INFO] [BuilderThread 1] module1 - 97
+      [Exec Stream Pumper] [INFO] [BuilderThread 1] module1 - 98
+      [Exec Stream Pumper] [INFO] [BuilderThread 2] module2 - 99
+      ...
+      NOTE 1: To show the thread in the Maven log, configure the Maven
+      installations conf/logging/simplelogger.properties option:
+      org.slf4j.simpleLogger.showThreadName=true
+      NOTE 2: This option is ignored when exec.outputFile is specified.
+
+    workingDirectory
+      User property: exec.workingdir
+      The current working directory. Optional. If not specified, basedir will
+      be used.
+
+exec:help
+  Description: Display help information on exec-maven-plugin.
+    Call mvn exec:help -Ddetail=true -Dgoal=<goal-name> to display parameter
+    details.
+  Implementation: org.codehaus.mojo.exec.HelpMojo
+  Language: java
+
+  Available parameters:
+
+    detail (Default: false)
+      User property: detail
+      If true, display all settable properties for each goal.
+
+    goal
+      User property: goal
+      The name of the goal for which to show help. If unspecified, all goals
+      will be displayed.
+
+    indentSize (Default: 2)
+      User property: indentSize
+      The number of spaces per indentation level, should be positive.
+
+    lineLength (Default: 80)
+      User property: lineLength
+      The maximum length of a display line, should be positive.
+
+exec:java
+  Description: Executes the supplied java class in the current VM with the
+    enclosing project's dependencies as classpath.
+  Implementation: org.codehaus.mojo.exec.ExecJavaMojo
+  Language: java
+
+  Available parameters:
+
+    additionalClasspathElements
+      Additional elements to be appended to the classpath.
+
+    addOutputToClasspath (Default: true)
+      User property: addOutputToClasspath
+      Add project output directory to classpath. This might be undesirable when
+      the exec plugin is run before the compile step. Default is true.
+
+    addResourcesToClasspath (Default: false)
+      User property: addResourcesToClasspath
+      Add project resource directories to classpath. This is especially useful
+      if the exec plugin is used for a code generator that reads its settings
+      from the classpath.
+
+    arguments
+      User property: exec.arguments
+      The class arguments.
+
+    classpathScope (Default: runtime)
+      User property: exec.classpathScope
+      Defines the scope of the classpath passed to the plugin. Set to
+      compile,test,runtime or system depending on your needs. Since 1.1.2, the
+      default value is 'runtime' instead of 'compile'.
+
+    cleanupDaemonThreads (Default: true)
+      User property: exec.cleanupDaemonThreads
+      Whether to interrupt/join and possibly stop the daemon threads upon
+      quitting.
+      If this is false, maven does nothing about the daemon threads. When maven
+      has no more work to do, the VM will normally terminate any remaining
+      daemon threads.
+      In certain cases (in particular if maven is embedded), you might need to
+      keep this enabled to make sure threads are properly cleaned up to ensure
+      they don't interfere with subsequent activity. In that case, see
+      daemonThreadJoinTimeout and stopUnresponsiveDaemonThreads for further
+      tuning.
+
+    commandlineArgs
+      User property: exec.args
+      Arguments separated by space for the executed program. For example: '-j
+      20'
+
+    daemonThreadJoinTimeout (Default: 15000)
+      User property: exec.daemonThreadJoinTimeout
+      This defines the number of milliseconds to wait for daemon threads to
+      quit following their interruption.
+      This is only taken into account if cleanupDaemonThreads is true. A value
+      <=0 means to not timeout (i.e. wait indefinitely for threads to finish).
+      Following a timeout, a warning will be logged.
+      Note: properly coded threads should terminate upon interruption but some
+      threads may prove problematic: as the VM does interrupt daemon threads,
+      some code may not have been written to handle interruption properly. For
+      example java.util.Timer is known to not handle interruptions in JDK <=
+      1.6. So it is not possible for us to infinitely wait by default otherwise
+      maven could hang. A sensible default value has been chosen, but this
+      default value may change in the future based on user feedback.
+
+    executableDependency
+      If provided the ExecutableDependency identifies which of the plugin
+      dependencies contains the executable class. This will have the effect of
+      only including plugin dependencies required by the identified
+      ExecutableDependency.
+      If includeProjectDependencies is set to true, all of the project
+      dependencies will be included on the executable's classpath. Whether a
+      particular project dependency is a dependency of the identified
+      ExecutableDependency will be irrelevant to its inclusion in the
+      classpath.
+
+    includePluginDependencies (Default: false)
+      User property: exec.includePluginsDependencies
+      Indicates if this plugin's dependencies should be used when executing the
+      main class. This is useful when project dependencies are not appropriate.
+      Using only the plugin dependencies can be particularly useful when the
+      project is not a java project. For example a mvn project using the csharp
+      plugins only expects to see dotnet libraries as dependencies.
+
+    includeProjectDependencies (Default: true)
+      User property: exec.includeProjectDependencies
+      Indicates if the project dependencies should be used when executing the
+      main class.
+
+    keepAlive (Default: false)
+      User property: exec.keepAlive
+      Indicates if mojo should be kept running after the mainclass terminates.
+      Use full for server like apps with daemon threads.
+      Deprecated. since 1.1-alpha-1
+
+    killAfter (Default: -1)
+      User property: exec.killAfter
+      Deprecated this is not needed anymore.
+      Deprecated. since 1.1-alpha-1
+
+    mainClass
+      Required: true
+      User property: exec.mainClass
+      The main class to execute.
+      With Java 9 and above you can prefix it with the modulename, e.g.
+      com.greetings/com.greetings.Main Without modulename the classpath will be
+      used, with modulename a new modulelayer will be created.
+
+    skip (Default: false)
+      Alias: skip
+      User property: exec.skip
+      Skip the execution. Starting with version 1.4.0 the former name skip has
+      been changed into exec.skip.
+
+    sourceRoot
+      User property: sourceRoot
+      This folder is added to the list of those folders containing source to be
+      compiled. Use this if your plugin generates source code.
+
+    stopUnresponsiveDaemonThreads (Default: false)
+      User property: exec.stopUnresponsiveDaemonThreads
+      Wether to call Thread.stop() following a timing out of waiting for an
+      interrupted thread to finish. This is only taken into account if
+      cleanupDaemonThreads is true and the daemonThreadJoinTimeout threshold
+      has been reached for an uncooperative thread. If this is false, or if
+      Thread.stop() fails to get the thread to stop, then a warning is logged
+      and Maven will continue on while the affected threads (and related
+      objects in memory) linger on. Consider setting this to true if you are
+      invoking problematic code that you can't fix. An example is Timer which
+      doesn't respond to interruption. To have Timer fixed, vote for this bug.
+
+    systemProperties
+      A list of system properties to be passed. Note: as the execution is not
+      forked, some system properties required by the JVM cannot be passed here.
+      Use MAVEN_OPTS or the exec:exec instead. See the user guide for more
+      information.
+
+    testSourceRoot
+      User property: testSourceRoot
+      This folder is added to the list of those folders containing source to be
+      compiled for testing. Use this if your plugin generates test source code.
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.839 s
+[INFO] Finished at: 2021-05-17T18:01:31+05:30
+[INFO] ------------------------------------------------------------------------
