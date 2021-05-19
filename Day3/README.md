@@ -53,13 +53,17 @@ In the pom.xml file,  you need to add the below properties anywhere within the p
   <sonar.password>Admin@123</sonar.password>
 </properties>
 ```
-Also we need to add the below plugin within <build><plugins></plugins></build> section
+Also we need to add the below plugin
 ```
-<plugin
+<build>
+  <plugins>
+      <plugin
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.9.0.2155</version>>
-</plugin>
+      </plugin>
+  </plugins>
+</build>>
 ```
 
 ### Finding SonarQube plugin goals
