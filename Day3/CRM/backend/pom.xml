@@ -1,0 +1,21 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.tektutor</groupId>
+	<artifactId>backend</artifactId>
+	<version>1.0.0</version>
+
+	<parent>
+		<groupId>org.tektutor</groupId>
+		<artifactId>crm</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<dependencies>
+            <dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.13.2</version>
+            </dependency>
+	</dependencies>
+</project>
