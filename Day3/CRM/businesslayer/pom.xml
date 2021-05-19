@@ -10,4 +10,10 @@
 		<artifactId>crm</artifactId>
 		<version>1.0.0</version>
 	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	</dependencies>
 </project>
