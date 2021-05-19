@@ -44,6 +44,24 @@ password - admin
 
 Assumption is, 172.17.0.2 is the IP address of the SonarQube container, your container IP might be different.
 
+### POM file configurations for SonarQube Integration
+In the pom.xml file,  you need to add the below properties anywhere within the project root tag
+```
+<properties>
+  <sonar.host.url></sonar.host.url>
+  <sonar.login>admin</sonar.login>
+  <sonar.password>Admin@123</sonar.password>
+</properties>
+```
+Also we need to add the below plugin within <build><plugins></plugins></build> section
+```
+<plugin
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.9.0.2155</version>>
+</plugin>
+```
+
 ### Finding SonarQube plugin goals
 ```
 mvn help:describe -Dplugin=org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155 -Ddetail
