@@ -51,7 +51,7 @@ ansible -i hosts ubuntu1 -m ping
 1. Ansible adhoc utility will pick the ssh connection details for ubuntu1 ansible node from the hosts(inventory) file.
 2. Ansible adhoc utility will create tmp directory in ACM- Ansible Controller Machine and a corresponding tmp directory
    on the Ansible node.
-3. Using sftp ansible copies the transpiled ping.py python script from ACM tmp folder to Ansible tmp folder
+3. Using sftp ansible copies the transpiled ping.py python script from ACM tmp folder to Ansible Node tmp folder
 4. ansible will give execute permission to the ping.py script on the ansible node
 5. ansible will execute the python script on the ansible node /usr/bin/python3 /root/.ansible/tmpxxxxxx/xxxxAnsiballz_ping.py
 6. ansible will collect the reponse(output) of the python script 
