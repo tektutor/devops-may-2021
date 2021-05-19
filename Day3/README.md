@@ -21,5 +21,6 @@ http://localhost:8081
 ### Copy the settings.xml file from devops-may-2021/Day3/CRM folder
 ```
 cd devops-may-2021/Day3/CRM
+git pull
 cp settings.xml /home/devops/Downloads/apache-maven-3.8.1/conf
 ```
