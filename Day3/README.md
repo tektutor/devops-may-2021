@@ -75,3 +75,16 @@ mvn help:describe -Dplugin=org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.
 mvn clean package
 mvn sonar:sonar
 ```
+
+### In case you wish to avoid capturing sonarqube login credentials in pom.xml
+In pom file just configure only the below
+```
+<properties>
+  <sonar.host.url></sonar.host.url>
+</properties>
+```
+
+### While performing static analysis, you can try providing security token as shown below
+```
+mvn sonar:sonar -Dsonar.login=<your-sonarqube-project-security-token>
+```
