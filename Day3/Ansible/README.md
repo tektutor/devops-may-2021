@@ -23,4 +23,4 @@ docker ps
 ssh -p 2001 root@localhost
 ssh -p 2002 root@localhost
 ```
-When it prompt with a question "Are you sure, do you want to connect Yes/No",  type yes
+When it prompts with a question "Are you sure, do you want to continue connecting yes/no",  type yes
