@@ -38,4 +38,7 @@ docker ps
 ```
 http://172.17.0.2:9000
 ```
+Default Login Credentials are
+user - admin
+password - admin
 Assumption is, 172.17.0.2 is the IP address of the SonarQube container, your container IP might be different.
