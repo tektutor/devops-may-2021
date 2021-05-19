@@ -29,6 +29,12 @@ cd devops-may-2021/Day3/Ansible
 touch hosts
 ```
 
+### Change ownership of devops-may-2021 folder to 'devops' user. Do this as root user
+```
+cd /home/devops
+chown -R devops devops-may-2021
+```
+
 From Applications Menu --> Programming --> Sublime Text --> Open Folder --> /home/devops/devops-may-2021/Day3/Ansible
 Open the hosts file and type the below content before saving
 ```
