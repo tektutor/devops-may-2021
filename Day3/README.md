@@ -46,10 +46,10 @@ Assumption is, 172.17.0.2 is the IP address of the SonarQube container, your con
 
 ### Finding SonarQube plugin goals
 ```
-mvn help:describe -Dplugin=org.sonarsource.scanner.maven:sonar-maven-plugin:
+mvn help:describe -Dplugin=org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155 -Ddetail
 ```
 ### Performing code coverage and static code analysis of CRM project using SonarQube
 ```
 mvn clean package
 mvn sonar:sonar
-``
+```
