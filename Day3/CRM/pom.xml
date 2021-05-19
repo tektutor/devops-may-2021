@@ -31,5 +31,20 @@
 		</repository>
 	</distributionManagement>
 
+	<properties>
+		<sonar.host.url>http://172.17.0.2:9000</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>Admin@123</sonar.password>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+  				<groupId>org.sonarsource.scanner.maven</groupId>
+  				<artifactId>sonar-maven-plugin</artifactId>
+  				<version>3.9.0.2155</version>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
 
