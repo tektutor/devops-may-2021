@@ -24,3 +24,18 @@ cd devops-may-2021/Day3/CRM
 git pull
 cp settings.xml /home/devops/Downloads/apache-maven-3.8.1/conf
 ```
+### Create SonarQube container
+```
+docker run -d --name sonar --hostname sonar sonarqube:latest
+```
+
+### Verify if SonarQube is running
+```
+docker ps
+```
+
+### Check if you can access the SonarQube web page
+```
+http://172.17.0.2:9000
+```
+Assumption is, 172.17.0.2 is the IP address of the SonarQube container, your container IP might be different.
