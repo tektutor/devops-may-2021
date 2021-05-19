@@ -230,7 +230,7 @@ exit
 docker cp lb:/etc/nginx/nginx.conf .
 ```
 
-### Edit the nginx.conf on your machine and make sure it looks as shown below
+### Edit the nginx.conf on your RPS Lab machine and make sure it looks as shown below
 ```
 user  nginx;
 worker_processes  1;
@@ -261,4 +261,52 @@ The assumption is
 172.17.0.2 is the IP Address of web1 container
 172.17.0.3 is the IP Address of web2 container
 172.17.0.4 is the IP Address of web3 container
+```
+
+### We need copy the nginx.conf file from local machine to lb container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+
+### We need to restart lb container to apply the configuration changes
+```
+docker restart lb
+```
+
+### Ensure the lb container is still running
+```
+docker ps
+```
+
+### Optionally you could change the index.html files in web1, web2 and web3 containers as shown below
+```
+docker exec -it web1 bash
+echo "Server 1" > /usr/share/nginx/html/index.html
+exit
+docker exec -it web2 bash
+echo "Server 2" > /usr/share/nginx/html/index.html
+exit
+docker exec -it web3 bash
+echo "Server 3" > /usr/share/nginx/html/index.html
+exit
+```
+
+### You may now access the web page as shown below
+```
+curl http://192.168.18.126:80
+curl http://192.168.18.126:80
+curl http://192.168.18.126:80
+```
+You need to replace the IP address with your RPS Lab machine IP.
+
+Each time you curl the URL, you will get output something like
+```
+curl http://192.168.18.126:80
+Server 1
+
+curl http://192.168.18.126:80
+Server 2
+
+curl http://192.168.18.126:80
+Server 3
 ```
