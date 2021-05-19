@@ -24,3 +24,16 @@ ssh -p 2001 root@localhost
 ssh -p 2002 root@localhost
 ```
 When it prompts with a question "Are you sure, do you want to continue connecting yes/no",  type yes
+```
+cd devops-may-2021/Day3/Ansible
+touch hosts
+```
+
+From Applications Menu --> Programming --> Sublime Text --> Open Folder --> /home/devops/devops-may-2021/Day3/Ansible
+Open the hosts file and type the below content before saving
+```
+[all]
+ubuntu1 ansible_user=root ansible_port=2001 ansible_host=localhost ansible_private_key_file=/root/.ssh/id_rsa
+ubuntu2 ansible_user=root ansible_port=2002 ansible_host=localhost ansible_private_key_file=/root/.ssh/id_rsa
+```
+
