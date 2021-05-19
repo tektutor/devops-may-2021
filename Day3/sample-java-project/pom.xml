@@ -3,8 +3,9 @@
 	<properties>
 		<sdkVersion>1.9.7</sdkVersion>
 		<sonar.host.url>http://172.17.0.2:9000</sonar.host.url>
-		<sonar.login>admin</sonar.login>
+<!--		<sonar.login>admin</sonar.login>
 		<sonar.password>Admin@123</sonar.password>
+-->
 	</properties>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.authorize.sample</groupId>
