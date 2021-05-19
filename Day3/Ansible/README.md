@@ -48,7 +48,7 @@ ubuntu2 ansible_user=root ansible_port=2002 ansible_host=localhost ansible_priva
 ansible -i hosts ubuntu1 -m ping
 ```
 
-1. Ansible adhoc utility will pick the ssh connection details for ubuntu1 ansible node.
+1. Ansible adhoc utility will pick the ssh connection details for ubuntu1 ansible node from the hosts(inventory) file.
 2. Ansible adhoc utility will create tmp directory in ACM- Ansible Controller Machine and a corresponding tmp directory
    on the Ansible node.
 3. Using sftp ansible copies the transpiled ping.py python script from ACM tmp folder to Ansible tmp folder
