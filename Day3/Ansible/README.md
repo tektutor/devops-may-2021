@@ -1,6 +1,6 @@
 ### Preparing Ubuntu Ansible Custom Docker Image
 ```
-cd Day3/Ansible/ubuntu-ansible
+cd devops-may-2021/Day3/Ansible/ubuntu-ansible
 ssh-keygen
 cp /root/.ssh/id_rsa.pub authorized_keys
 
