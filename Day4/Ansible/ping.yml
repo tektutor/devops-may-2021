@@ -1,11 +1,15 @@
-- name: This is a simple ansible playbook
+- name: First Play
   hosts: all
   tasks:
-    - name: Ping the qa ansible node
+    - name: Task 1 in First Play
       ping:
 
-- name: This is a simple ansible playbook
+    - name: Task 2 in First Play
+      ping:
+
+
+- name: Second Play
   hosts: dev
   tasks:
-    - name: Ping the dev ansible node
+    - name: First Task in Second Play
       ping:

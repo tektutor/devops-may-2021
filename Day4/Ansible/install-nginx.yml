@@ -1,0 +1,5 @@
+- name: This playbook will install nginx, configure web root folder and will deploy custom html page
+  hosts: all
+  tasks:
+     - name: Install nginx
+       apt: name=nginx state=latest update_cache=yes
