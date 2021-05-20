@@ -1,0 +1,11 @@
+- name: This is a simple ansible playbook
+  hosts: all
+  tasks:
+    - name: Ping the qa ansible node
+      ping:
+
+- name: This is a simple ansible playbook
+  hosts: dev
+  tasks:
+    - name: Ping the dev ansible node
+      ping:

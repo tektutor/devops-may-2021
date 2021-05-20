@@ -1,0 +1,3 @@
+[all]
+ubuntu1 ansible_user=root ansible_port=2001 ansible_password=root ansible_host=localhost 
+ubuntu2 ansible_user=root ansible_port=2002 ansible_password=root ansible_host=localhost
