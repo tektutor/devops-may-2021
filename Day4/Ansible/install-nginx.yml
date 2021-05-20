@@ -1,5 +1,28 @@
 - name: This playbook will install nginx, configure web root folder and will deploy custom html page
   hosts: all
+  vars:
+    - greeting_msg: DevOps!
+    - conf_mgr_tool: Ansible
+    - provisioner_tool: Docker
+
   tasks:
      - name: Install nginx
        apt: name=nginx state=latest update_cache=yes
+
+     - name: Start nginx web server
+#      service: name=nginx state=started enabled=yes
+# Due to known issue, the  service modules doesn't seem to start the nginx service, 
+# hence let's fallback to shell module
+       shell: service nginx start
+ 
+     - name: Create the custom webroot folder
+       file: path=/var/html state=directory mode=0777
+
+     - name: Configure nginx web root folder
+       copy: src=default dest=/etc/nginx/sites-available/default backup=true
+
+     - name: Start nginx web server
+       shell: service nginx restart
+
+     - name: Deploy custom welcome page into nginx web server
+       template: src=index.html.j2 dest=/var/html/index.html
